@@ -1,0 +1,225 @@
+.section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+    font-family: var(--font-geist-sans, sans-serif);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.mainTitle {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #171717;
+    transition: color 0.3s ease;
+    cursor: default;
+    /* or pointer if it feels interactive */
+}
+
+.mainTitle:hover {
+    color: #6b7280;
+    /* Grey-500 */
+}
+
+.subTitle {
+    color: #6b7280;
+    font-size: 1.125rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    align-items: center;
+    /* Align cards vertically */
+}
+
+/* Card Styles */
+.card {
+    border-radius: 24px;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* transition handled by framer motion */
+    height: 100%;
+}
+
+/* Default / White Card */
+.cardDefault {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    color: #171717;
+}
+
+/* Popular / Black Card */
+.cardPopular {
+    background-color: #171717;
+    color: white;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: scale(1.05);
+    /* Statically larger */
+}
+
+/* Tag */
+.popularTag {
+    position: absolute;
+    top: -12px;
+    left: 24px;
+    /* Align to left instead of center */
+    transform: none;
+    /* Remove centering transform */
+    background-color: white;
+    color: black;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.flexipayTag {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    /* Align to right */
+    background-color: #f3f4f6;
+    color: #374151;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Pricing Header inside Card */
+.priceHeader {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.period {
+    font-size: 1rem;
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+.planName {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.planDescription {
+    font-size: 0.95rem;
+    opacity: 0.7;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* Features List */
+.featuresList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+    flex-grow: 1;
+    /* Push button down */
+    text-align: left;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.checkIcon {
+    width: 20px;
+    height: 20px;
+    stroke-width: 3px;
+}
+
+/* Button */
+.ctaButton {
+    width: 100%;
+    padding: 16px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    border: none;
+}
+
+.btnBlack {
+    background-color: #171717;
+    color: white;
+}
+
+.btnWhite {
+    background-color: white;
+    color: #171717;
+}
+
+.ctaButton:hover {
+    opacity: 0.9;
+}
+
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .cardPopular {
+        transform: none;
+    }
+
+    .cardPopular:hover {
+        transform: translateY(-8px);
+    }
+}
+
+/* Central Button Container */
+.startBtnContainer {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.centralCtaButton {
+    padding: 20px 48px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    border: none;
+    background-color: #171717;
+    color: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.centralCtaButton:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}

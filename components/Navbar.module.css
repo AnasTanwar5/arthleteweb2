@@ -1,0 +1,128 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid #f3f4f6;
+    font-family: var(--font-geist-sans), sans-serif;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.brand {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    letter-spacing: -0.025em;
+}
+
+.brandGray {
+    font-weight: 400;
+    color: #9ca3af;
+}
+
+.brandBold {
+    font-weight: 700;
+    color: #111827;
+}
+
+.spacer {
+    display: none;
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .spacer {
+        display: flex;
+    }
+}
+
+.actions {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
+
+.downloadButton {
+    border-radius: 9999px;
+    background-color: #ffffff;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #111827;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.downloadButton:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.downloadButton:active {
+    transform: scale(0.95);
+}
+
+/* Pill Navigation Styles */
+.pillNav {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    /* Transform is handled by Framer Motion: x: -50% */
+    background-color: #f3f4f6;
+    padding: 0.375rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 100;
+    border: 1px solid white;
+}
+
+.pillLink {
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+    /* transition: color 0.2s; Removed to let Framer handle pacing if possible, or just be instant */
+
+}
+
+.pillLink.active,
+.pillLink:hover {
+    color: #111827;
+}
+
+.activeBackground {
+    position: absolute;
+    inset: 0;
+    background-color: white;
+    border-radius: 9999px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
