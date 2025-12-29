@@ -99,7 +99,33 @@ export default function HowItWorks() {
                                     >
                                         <div className={styles.phoneNotch}></div>
                                         <div className={styles.phoneContent}>
-                                            <div className={styles.stepBadge}>{step.number}</div>
+                                            {step.id === 1 ? (
+                                                <img 
+                                                    src="/screen-1.jpeg" 
+                                                    alt="Personalized Fitness Plans" 
+                                                    className={styles.phoneImage}
+                                                />
+                                            ) : step.id === 2 ? (
+                                                <img 
+                                                    src="/screen-2.jpeg" 
+                                                    alt="Competitive Challenges" 
+                                                    className={styles.phoneImage}
+                                                />
+                                            ) : step.id === 3 ? (
+                                                <img 
+                                                    src="/screen%203.jpeg" 
+                                                    alt="Diverse Workouts" 
+                                                    className={styles.phoneImage}
+                                                />
+                                            ) : step.id === 4 ? (
+                                                <img 
+                                                    src="/screen-4.jpeg" 
+                                                    alt="Stay On Track" 
+                                                    className={styles.phoneImage}
+                                                />
+                                            ) : (
+                                                <div className={styles.stepBadge}>{step.number}</div>
+                                            )}
                                         </div>
                                     </motion.div>
                                 );

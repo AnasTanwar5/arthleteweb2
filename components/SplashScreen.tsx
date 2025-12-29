@@ -43,7 +43,7 @@ export default function SplashScreen() {
                                     />
                                 </div>
                                 <button className={styles.getStartedButton}>
-                                    Join Community
+                                    Become An Arthlete
                                 </button>
                             </div>
                         </div>
@@ -70,7 +70,7 @@ export default function SplashScreen() {
                                     />
                                 </div>
                                 <button className={styles.getStartedButton}>
-                                    Join Community
+                                    Become An Arthlete
                                 </button>
                             </div>
                         </div>
@@ -97,7 +97,7 @@ export default function SplashScreen() {
                                     />
                                 </div>
                                 <button className={styles.getStartedButton}>
-                                    Join Community
+                                    Become An Arthlete
                                 </button>
                             </div>
                         </div>
