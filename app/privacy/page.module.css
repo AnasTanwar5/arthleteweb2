@@ -1,0 +1,142 @@
+.pageContainer {
+    min-height: 100vh;
+    background-color: var(--brand-white);
+    padding: 8rem 2rem 4rem;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--brand-black);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+}
+
+.effectiveDate {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.intro {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.intro p {
+    font-size: 1.125rem;
+    color: var(--brand-black);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.section {
+    color: var(--brand-black);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brand-black);
+    margin-bottom: 1rem;
+    margin-top: 0;
+    letter-spacing: -0.01em;
+}
+
+.section p {
+    font-size: 1rem;
+    color: #374151;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.list li {
+    font-size: 1rem;
+    color: #374151;
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.list li::before {
+    content: "•";
+    color: var(--brand-primary);
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    line-height: 1.2;
+}
+
+.list li strong {
+    color: var(--brand-black);
+    font-weight: 600;
+}
+
+.emailLink {
+    color: var(--brand-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.emailLink:hover {
+    color: #e63900;
+    text-decoration: underline;
+}
+
+.contactInfo {
+    font-size: 1rem;
+    color: #374151;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .pageContainer {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.25rem;
+    }
+
+    .intro p,
+    .section p,
+    .list li {
+        font-size: 0.9375rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .pageContainer {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+

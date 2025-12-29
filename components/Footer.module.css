@@ -10,7 +10,7 @@
     background: var(--brand-black);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 2rem 0;
+    padding: 1rem 0;
     overflow: hidden;
     position: relative;
 }
@@ -19,7 +19,7 @@
     display: flex;
     white-space: nowrap;
     animation: scroll 30s linear infinite;
-    font-size: 10rem;
+    font-size: 4rem;
     font-weight: 700;
     color: var(--brand-white);
     letter-spacing: -0.02em;
@@ -42,37 +42,36 @@
 /* Main Footer Content */
 .footerContent {
     background: var(--brand-black);
-    padding: 4rem 0 0;
+    padding: 2rem 0 0;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
-    gap: 4rem;
+    gap: 2rem;
 }
 
 /* Left Section */
 .leftSection {
-    flex: 1;
+    flex: 0 0 auto;
     max-width: 400px;
 }
 
 .tagline {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: var(--brand-white);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     line-height: 1.2;
     letter-spacing: -0.02em;
 }
 
 .subtitle {
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     line-height: 1.6;
 }
 
@@ -95,9 +94,9 @@
 
 /* Links Section */
 .linksSection {
-    flex: 1;
+    flex: 0 0 auto;
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
     justify-content: flex-end;
 }
 
@@ -121,28 +120,42 @@
     color: rgba(255, 255, 255, 0.6);
     transition: color 0.3s ease;
     cursor: pointer;
+    outline: none;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    margin: -0.25rem -0.5rem;
 }
 
 .link:hover {
     color: var(--brand-white);
 }
 
+.link:focus {
+    color: var(--brand-white);
+    outline: 2px solid var(--brand-primary);
+    outline-offset: 2px;
+}
+
 /* Bottom Bar */
 .bottomBar {
-    margin-top: 4rem;
-    padding: 2rem 0;
+    margin-top: 2rem;
+    padding: 1.5rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .bottomBar .container {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
 }
 
 .copyright {
     font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.4);
+    text-align: center;
 }
 
 .legalLinks {
@@ -163,13 +176,22 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .scrollingText {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .container {
         flex-direction: column;
         gap: 3rem;
         padding: 0 1.5rem;
+    }
+
+    .leftSection {
+        max-width: 100%;
+    }
+
+    .linksSection {
+        width: 100%;
+        justify-content: flex-start;
     }
 
     .leftSection {
@@ -216,7 +238,7 @@
 
 @media (max-width: 480px) {
     .scrollingText {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .linksSection {

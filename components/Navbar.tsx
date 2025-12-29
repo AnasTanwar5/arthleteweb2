@@ -41,9 +41,12 @@ export default function Navbar() {
                         href="/"
                         style={{ display: 'flex', alignItems: 'center', gap: '12px' }}
                         onClick={(e) => {
-                            e.preventDefault();
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                            setActiveTab('home');
+                            if (window.location.pathname === '/') {
+                                e.preventDefault();
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                setActiveTab('home');
+                            }
+                            // If on other pages, let the Link navigate normally to home
                         }}
                     >
                         <Image
@@ -108,11 +111,6 @@ export default function Navbar() {
                                 </span>
                             </button>
                         ))}
-                        <Link href="/blog" className={styles.pillLink}>
-                            <span style={{ position: 'relative', zIndex: 2, color: "#6b7280" }}>
-                                Blog
-                            </span>
-                        </Link>
                     </motion.div>
                 )}
             </AnimatePresence>

@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import PhoneShowcase from "@/components/PhoneShowcase";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import Pricing from "@/components/Pricing";
@@ -55,6 +56,9 @@ function PageContent() {
         {/* Main content - always present */}
         <div id="hero">
           <Hero />
+        </div>
+        <div id="phone">
+          <PhoneShowcase />
         </div>
         <div id="features">
           <Features />

@@ -54,9 +54,34 @@ export default function Footer() {
 
                         <div className={styles.linkColumn}>
                             <h3 className={styles.columnTitle}>Support</h3>
-                            <Link href="#faqs" className={styles.link}>Help Center</Link>
-                            <Link href="#faqs" className={styles.link}>FAQs</Link>
-                            <Link href="#pricing" className={styles.link}>Pricing</Link>
+                            <Link 
+                                href="/support" 
+                                className={styles.link}
+                                aria-label="Go to Support and Help Center"
+                            >
+                                Help Center
+                            </Link>
+                            <Link 
+                                href="#faqs" 
+                                className={styles.link}
+                                aria-label="Go to Frequently Asked Questions"
+                            >
+                                FAQs
+                            </Link>
+                            <Link 
+                                href="#pricing" 
+                                className={styles.link}
+                                aria-label="Go to Pricing information"
+                            >
+                                Pricing
+                            </Link>
+                            <Link 
+                                href="/delete-account" 
+                                className={styles.link}
+                                aria-label="Go to Delete Account page"
+                            >
+                                Delete Account
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -66,8 +91,8 @@ export default function Footer() {
                     <div className={styles.container}>
                         <p className={styles.copyright}>ARTHLETE MOTIONS PRIVATE LIMITED • All rights reserved</p>
                         <div className={styles.legalLinks}>
-                            <Link href="#" className={styles.legalLink}>Terms</Link>
-                            <Link href="#" className={styles.legalLink}>Privacy</Link>
+                            <Link href="/terms" className={styles.legalLink}>Terms</Link>
+                            <Link href="/privacy" className={styles.legalLink}>Privacy</Link>
                             <Link href="#" className={styles.legalLink}>Cookies</Link>
                         </div>
                     </div>

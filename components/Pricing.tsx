@@ -1,24 +1,13 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import styles from "./Pricing.module.css";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import MouseGradientText from "./MouseGradientText";
 
-const plans = [
-    {
-        id: "starter",
-        price: "₹179",
-        period: "/ 14 days",
-        name: "Starter Plan",
-        description: "Full access for 14 days to explore all features.",
-        features: [
-            "Full App Access",
-            "Basic Workouts",
-            "Progress Tracking"
-        ],
-        isHighlighted: false,
-    },
+// India pricing (INR)
+const indiaPlans = [
     {
         id: "monthly",
         price: "₹499",
@@ -27,12 +16,13 @@ const plans = [
         description: "Complete access to all features for one month.",
         subtext: "Price reduces by ₹10 for every 25 credits earned.",
         features: [
-            "Everything in Starter",
+            "Full App Access",
             "Advanced Workouts",
-            "Personalized Plans"
+            "Personalized Plans",
+            "Progress Tracking"
         ],
-        isHighlighted: true, // Black Background
-        tag: "Flexipay Available" // Keeping this as a generic flexipay tag or removing? User mainly wanted popular on 3rd. Layout: Flexipay was usually on the highlighted one.
+        isHighlighted: true,
+        tag: undefined
     },
     {
         id: "annual",
@@ -42,12 +32,78 @@ const plans = [
         description: "Enjoy full access for a year with savings of ₹500.",
         features: [
             "Everything in Monthly",
-            "Premium Analytics"
+            "Premium Analytics",
+            "Priority Support"
         ],
         isHighlighted: false,
-        tag: "Popular" // Moved here
+        tag: "Popular"
     }
 ];
+
+// International pricing (USD)
+const usdPlans = [
+    {
+        id: "monthly",
+        price: "$5.50",
+        period: "/ month",
+        name: "Monthly Plan",
+        description: "Complete access to all features for one month.",
+        subtext: "Special introductory price (reduced from $10.99).",
+        features: [
+            "Full App Access",
+            "Advanced Workouts",
+            "Personalized Plans",
+            "Progress Tracking"
+        ],
+        isHighlighted: true,
+        tag: undefined
+    },
+    {
+        id: "annual",
+        price: "$40",
+        period: "/ year",
+        name: "Annual Plan",
+        description: "Enjoy full access for a year with maximum savings.",
+        features: [
+            "Everything in Monthly",
+            "Premium Analytics",
+            "Priority Support"
+        ],
+        isHighlighted: false,
+        tag: "Popular"
+    }
+];
+
+// Function to detect if user is in India
+function isIndiaTimezone(): boolean {
+    if (typeof window === 'undefined') return false;
+    
+    try {
+        // Check timezone
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        if (timezone === 'Asia/Kolkata') {
+            return true;
+        }
+        
+        // Check locale
+        const locale = Intl.DateTimeFormat().resolvedOptions().locale;
+        if (locale.toLowerCase().includes('in')) {
+            return true;
+        }
+        
+        // Check timezone offset (IST is UTC+5:30)
+        const offset = new Date().getTimezoneOffset();
+        // IST offset is -330 minutes (5.5 hours ahead of UTC)
+        if (offset === -330) {
+            return true;
+        }
+        
+        return false;
+    } catch (e) {
+        // Default to USD if detection fails
+        return false;
+    }
+}
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -73,6 +129,19 @@ const cardVariants = {
 };
 
 export default function Pricing() {
+    const [isIndia, setIsIndia] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
+
+    useEffect(() => {
+        // Detect location on client side
+        const detected = isIndiaTimezone();
+        setIsIndia(detected);
+        setIsLoading(false);
+    }, []);
+
+    // Use India plans if in India, otherwise use USD plans
+    const plans = isIndia ? indiaPlans : usdPlans;
+
     return (
         <section id="pricing" className={styles.section}>
             <div className={styles.container}>
@@ -83,17 +152,19 @@ export default function Pricing() {
                     <p className={styles.subTitle}>Choose the plan that fits your fitness journey</p>
                 </div>
 
-                <motion.div
-                    className={styles.grid}
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.1 }}
-                >
-                    {plans.map((plan) => (
-                        <PricingCard key={plan.id} plan={plan} />
-                    ))}
-                </motion.div>
+                {!isLoading && (
+                    <motion.div
+                        className={styles.grid}
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.1 }}
+                    >
+                        {plans.map((plan) => (
+                            <PricingCard key={plan.id} plan={plan} />
+                        ))}
+                    </motion.div>
+                )}
 
                 <div className={styles.startBtnContainer}>
                     <a
@@ -130,14 +201,6 @@ function PricingCard({ plan }: { plan: any }) {
                 <div className={plan.tag === "Popular" ? styles.popularTag : styles.flexipayTag}>
                     {plan.tag}
                 </div>
-            )}
-
-            {/* Specific Flexipay for Monthly if needed, or stick to tag property logic. 
-                User image showed "Flexipay Available" on the middle orange card, and "Popular" on the right card.
-                I will manually add Flexipay if it's the middle card, separate from the 'tag' prop logic to avoid conflict/complexity.
-            */}
-            {plan.id === 'monthly' && (
-                <div className={styles.flexipayTag}>Flexipay Available</div>
             )}
 
 

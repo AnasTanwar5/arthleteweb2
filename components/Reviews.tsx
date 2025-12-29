@@ -172,7 +172,7 @@ export default function Reviews() {
                     className={styles.trustBadge}
                 >
                     <h2 className={styles.trustTitle}>
-                        Trusted by users in <span className={styles.highlight}>18+ Countries</span> and <span className={styles.highlight}>Rahul Education</span>
+                        Trusted by users in <span className={styles.highlight}>18+ Countries</span>
                     </h2>
                 </motion.div>
             </div>

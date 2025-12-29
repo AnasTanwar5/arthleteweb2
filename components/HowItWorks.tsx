@@ -9,29 +9,29 @@ const steps = [
     {
         id: 1,
         number: "1",
-        title: "Personalized Nutrition Plans",
-        description: "Unlock custom nutrition plans for fat loss and muscle gain",
+        title: "Personalized Fitness Plans",
+        description: "Unlock custom fitness plans for fat loss and muscle gain",
         color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
     },
     {
         id: 2,
         number: "2",
-        title: "Dynamic Meal Suggestions",
-        description: "Enjoy meals recommended and optimized based on your workout goals, recovery needs, and personalized nutrition plan.",
+        title: "Competitive Challenges",
+        description: "Competitive challenges to push performance further.",
         color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
     },
     {
         id: 3,
         number: "3",
-        title: "Focus Mode & Form Precision",
-        description: "Master every move with perfect form. Arthlete's AI-powered personal trainer delivers real-time rep-wise correction.",
+        title: "Diverse Workouts",
+        description: "Diverse workouts for every fitness goal.",
         color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
     },
     {
         id: 4,
         number: "4",
         title: "Stay On Track",
-        description: "Build better fitness routines, improve sleep quality, reduce workout stress, and stay mentally strong for long-term health.",
+        description: "Track your progress with real-time insights and performance data.",
         color: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
     }
 ];

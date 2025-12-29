@@ -20,7 +20,7 @@ const config: Config = {
                 foreground: "var(--foreground)",
             },
             fontFamily: {
-                sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                sans: ['var(--font-playfair-display)', 'Playfair Display', 'serif'],
             },
             boxShadow: {
                 'soft': '0 2px 8px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.06)',
