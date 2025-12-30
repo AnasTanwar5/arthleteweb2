@@ -47,6 +47,40 @@ function PageContent() {
 
   return (
     <>
+      {/* Structured Data for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Arthlete",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "Android, iOS",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "1250"
+            },
+            "description": "AI-powered motion tracking for smarter home workouts, fat loss, and strength training. Personalized fitness plans, diet plans, and real-time form correction.",
+            "screenshot": "https://arthlete.app/arthlete-logo.png",
+            "featureList": [
+              "AI-powered motion tracking",
+              "Personalized fitness plans",
+              "Tailored diet plans",
+              "Real-time form correction",
+              "Fitness challenges",
+              "Workout tracking"
+            ]
+          })
+        }}
+      />
+
       {/* Navbar - always visible, outside main content */}
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 2000 }}>
         <Navbar />

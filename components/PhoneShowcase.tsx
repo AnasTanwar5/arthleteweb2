@@ -34,7 +34,7 @@ export default function PhoneShowcase() {
                             <div className={styles.phoneHeader}>
                                 <div className={styles.phoneTitle}>Hey, Janet!</div>
                                 <div className={styles.phoneAvatar}>
-                                    <Image src="/avatar_davis.png" width={32} height={32} alt="Profile" />
+                                    <Image src="/avatar_davis.png" width={32} height={32} alt="User profile avatar" />
                                 </div>
                             </div>
 
@@ -42,7 +42,7 @@ export default function PhoneShowcase() {
                                 <Image
                                     src="/workout1.png"
                                     fill
-                                    alt="Workout"
+                                    alt="5-Day Strength Boost workout - Woman performing push-up exercise"
                                     className={styles.phoneBannerImage}
                                     sizes="(max-width: 300px) 100vw, 300px"
                                 />
@@ -78,7 +78,7 @@ export default function PhoneShowcase() {
                         className={`${styles.widgetBase} ${styles.widgetDavis}`}
                     >
                         <div className={styles.davisAvatar}>
-                            <Image src="/avatar_davis.png" width={64} height={64} alt="Davis" />
+                            <Image src="/avatar_davis.png" width={64} height={64} alt="Davis Korsgaard - Player wellness expert and Coach of the Year" />
                         </div>
                         <div className={styles.widgetText}>
                             <h4>Davis Korsgaard</h4>
@@ -175,7 +175,7 @@ export default function PhoneShowcase() {
                         <div className={styles.avatarStack}>
                             {[1, 2, 3].map((_, i) => (
                                 <div key={i} className={styles.stackedAvatar}>
-                                    <Image src="/workout1.png" fill style={{ objectFit: 'cover' }} alt="user" />
+                                    <Image src="/workout1.png" fill style={{ objectFit: 'cover' }} alt="Workout participant" />
                                 </div>
                             ))}
                         </div>

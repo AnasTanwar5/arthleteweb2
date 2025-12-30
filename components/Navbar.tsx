@@ -51,7 +51,7 @@ export default function Navbar() {
                     >
                         <Image
                             src="/arthlete-logo.png"
-                            alt="Arthlete"
+                            alt="Arthlete - AI-Powered Fitness App Logo"
                             width={40}
                             height={40}
                             style={{ borderRadius: '12px' }}
