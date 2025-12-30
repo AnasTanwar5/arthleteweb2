@@ -72,8 +72,8 @@ export default function PhoneShowcase() {
                     {/* 1. Davis Korsgaard (Top Left) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={isMobile ? -90 : -420}
-                        finalY={isMobile ? -200 : -250}
+                        finalX={isMobile ? -110 : -420}
+                        finalY={isMobile ? -220 : -250}
                         isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetDavis}`}
                     >
@@ -89,8 +89,8 @@ export default function PhoneShowcase() {
                     {/* 2. Calories (Bottom Left) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={isMobile ? -90 : -450}
-                        finalY={isMobile ? 200 : 300}
+                        finalX={isMobile ? -140 : -450}
+                        finalY={isMobile ? 220 : 300}
                         isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetCalories}`}
                     >
@@ -101,11 +101,11 @@ export default function PhoneShowcase() {
                         </div>
                     </ScrollWidget>
 
-                    {/* 3. Leg Workouts (Left Middle) */}
+                    {/* 3. Leg Workouts (Left Upper Middle) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={isMobile ? -90 : -380}
-                        finalY={isMobile ? -30 : -50}
+                        finalX={isMobile ? -140 : -380}
+                        finalY={isMobile ? -100 : -50}
                         isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetLegs}`}
                     >
@@ -119,8 +119,8 @@ export default function PhoneShowcase() {
                     {/* 4. Chart (Top Right) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={isMobile ? 90 : 420}
-                        finalY={isMobile ? -160 : -80}
+                        finalX={isMobile ? 140 : 420}
+                        finalY={isMobile ? -200 : -80}
                         isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetsChart}`}
                     >
@@ -137,8 +137,8 @@ export default function PhoneShowcase() {
                     {/* 6. Workout Streak (Left Lower Middle) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={isMobile ? -90 : -400}
-                        finalY={isMobile ? 120 : 200}
+                        finalX={isMobile ? -140 : -400}
+                        finalY={isMobile ? 150 : 200}
                         isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetStreak}`}
                     >
@@ -149,11 +149,11 @@ export default function PhoneShowcase() {
                         </div>
                     </ScrollWidget>
 
-                    {/* 7. Muscle Groups (Top Right) */}
+                    {/* 7. Muscle Groups (Below Progress) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={isMobile ? 90 : 500}
-                        finalY={isMobile ? -140 : -280}
+                        finalX={isMobile ? 140 : 500}
+                        finalY={isMobile ? -120 : -280}
                         isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetMuscle}`}
                     >
@@ -167,8 +167,8 @@ export default function PhoneShowcase() {
                     {/* 8. Workout Images (Bottom Right) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={isMobile ? 90 : 450}
-                        finalY={isMobile ? 200 : 300}
+                        finalX={isMobile ? 140 : 450}
+                        finalY={isMobile ? 250 : 300}
                         isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetImages}`}
                     >
@@ -184,8 +184,8 @@ export default function PhoneShowcase() {
                     {/* 9. Full Body (Right Middle) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={isMobile ? 90 : 380}
-                        finalY={isMobile ? 50 : 120}
+                        finalX={isMobile ? 140 : 380}
+                        finalY={isMobile ? 60 : 120}
                         isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetFullBody}`}
                     >
@@ -221,13 +221,14 @@ function ScrollWidget({
     finalY: number,
     isMobile?: boolean
 }) {
-    // Original desktop animation - widgets appear between 0.2 and 0.6 scroll progress
-    // Mobile: Widgets animate faster from 0 to 0.15 for immediate appearance
+    // Desktop animation - widgets appear between 0 and 0.4 scroll progress
+    // Mobile: Same animation style as desktop - fade in, scale up, animate out
     if (isMobile) {
-        const x = useTransform(progress, [0, 0.15], [0, finalX]);
-        const y = useTransform(progress, [0, 0.15], [0, finalY]);
-        const scale = useTransform(progress, [0, 0.15], [0.6, 0.7]);
-        const opacity = useTransform(progress, [0, 0.05, 0.15], [1, 1, 1]);
+        // Mobile animation matching desktop style
+        const x = useTransform(progress, [0, 0.4], [0, finalX]);
+        const y = useTransform(progress, [0, 0.4], [0, finalY]);
+        const scale = useTransform(progress, [0, 0.4], [0.3, 0.7]);
+        const opacity = useTransform(progress, [0, 0.1, 0.4], [0, 1, 1]);
         
         return (
             <motion.div
