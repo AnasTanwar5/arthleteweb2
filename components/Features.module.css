@@ -78,3 +78,51 @@
     color: #6b7280;
     font-weight: 400;
 }
+
+@media (max-width: 768px) {
+    .featuresSection {
+        padding: 4rem 1.5rem;
+    }
+
+    .card {
+        padding: 2rem;
+    }
+
+    .title {
+        font-size: 1.25rem;
+    }
+
+    .description {
+        font-size: 0.9375rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .featuresSection {
+        padding: 3rem 1rem;
+    }
+
+    .grid {
+        gap: 1.5rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .iconWrapper {
+        width: 3rem;
+        height: 3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .title {
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .description {
+        font-size: 0.875rem;
+        line-height: 1.6;
+    }
+}

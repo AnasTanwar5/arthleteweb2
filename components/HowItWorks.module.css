@@ -204,11 +204,11 @@
     }
 
     .cardsContainer {
-        order: 2;
+        order: 1;
     }
 
     .textContent {
-        order: 1;
+        order: 2;
         text-align: center;
         min-height: 300px;
     }
@@ -249,10 +249,18 @@
 
     .contentWrapper {
         gap: 2.5rem;
+        align-items: center;
     }
 
     .textContent {
         min-height: 250px;
+        width: 100%;
+    }
+
+    .cardsContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .stepTitle {
@@ -322,10 +330,23 @@
 
     .contentWrapper {
         gap: 2rem;
+        align-items: center;
     }
 
     .textContent {
         min-height: 220px;
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .cardsContainer {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .stepContent {
+        padding: 0 1rem;
     }
 
     .stepNumber {

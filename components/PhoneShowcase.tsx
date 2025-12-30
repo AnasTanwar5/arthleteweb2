@@ -2,15 +2,25 @@
 
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import styles from "./Hero.module.css";
 
 export default function PhoneShowcase() {
     const containerRef = useRef<HTMLDivElement>(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 480);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start start", "end end"],
+        offset: ["start end", "end start"],
     });
 
     return (
@@ -59,11 +69,12 @@ export default function PhoneShowcase() {
 
                     {/* --- FLOATING WIDGETS - COME OUT OF PHONE ON SCROLL --- */}
 
-                    {/* 1. Davis Korsgaard (Top Left Corner) */}
+                    {/* 1. Davis Korsgaard (Top Left) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={-420}
-                        finalY={-250}
+                        finalX={isMobile ? -90 : -420}
+                        finalY={isMobile ? -200 : -250}
+                        isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetDavis}`}
                     >
                         <div className={styles.davisAvatar}>
@@ -75,11 +86,12 @@ export default function PhoneShowcase() {
                         </div>
                     </ScrollWidget>
 
-                    {/* 2. Calories (Bottom Left Corner) */}
+                    {/* 2. Calories (Bottom Left) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={-450}
-                        finalY={300}
+                        finalX={isMobile ? -90 : -450}
+                        finalY={isMobile ? 200 : 300}
+                        isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetCalories}`}
                     >
                         <span style={{ fontSize: '2rem' }}>🔥</span>
@@ -89,11 +101,12 @@ export default function PhoneShowcase() {
                         </div>
                     </ScrollWidget>
 
-                    {/* 3. Leg Workouts (Left Edge - Upper Middle) */}
+                    {/* 3. Leg Workouts (Left Middle) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={-380}
-                        finalY={-50}
+                        finalX={isMobile ? -90 : -380}
+                        finalY={isMobile ? -30 : -50}
+                        isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetLegs}`}
                     >
                         <div className={styles.iconCircle}>🧘‍♀️</div>
@@ -103,11 +116,12 @@ export default function PhoneShowcase() {
                         </div>
                     </ScrollWidget>
 
-                    {/* 4. Chart (Right Edge - Upper Middle - Away from navbar) */}
+                    {/* 4. Chart (Top Right) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={420}
-                        finalY={-80}
+                        finalX={isMobile ? 90 : 420}
+                        finalY={isMobile ? -160 : -80}
+                        isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetsChart}`}
                     >
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', width: '100%' }}>
@@ -120,11 +134,12 @@ export default function PhoneShowcase() {
                         </div>
                     </ScrollWidget>
 
-                    {/* 6. Workout Streak (Left Edge - Lower Middle) */}
+                    {/* 6. Workout Streak (Left Lower Middle) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={-400}
-                        finalY={200}
+                        finalX={isMobile ? -90 : -400}
+                        finalY={isMobile ? 120 : 200}
+                        isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetStreak}`}
                     >
                         <span style={{ fontSize: '2rem' }}>🔥</span>
@@ -134,11 +149,12 @@ export default function PhoneShowcase() {
                         </div>
                     </ScrollWidget>
 
-                    {/* 7. Muscle Groups (Top Right Corner) */}
+                    {/* 7. Muscle Groups (Top Right) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={500}
-                        finalY={-280}
+                        finalX={isMobile ? 90 : 500}
+                        finalY={isMobile ? -140 : -280}
+                        isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetMuscle}`}
                     >
                         <div className={styles.iconCircle}>💪</div>
@@ -148,11 +164,12 @@ export default function PhoneShowcase() {
                         </div>
                     </ScrollWidget>
 
-                    {/* 8. Workout Images (Bottom Right Corner) */}
+                    {/* 8. Workout Images (Bottom Right) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={450}
-                        finalY={300}
+                        finalX={isMobile ? 90 : 450}
+                        finalY={isMobile ? 200 : 300}
+                        isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetImages}`}
                     >
                         <div className={styles.avatarStack}>
@@ -164,11 +181,12 @@ export default function PhoneShowcase() {
                         </div>
                     </ScrollWidget>
 
-                    {/* 9. Full Body (Right Edge - Middle) */}
+                    {/* 9. Full Body (Right Middle) */}
                     <ScrollWidget
                         progress={scrollYProgress}
-                        finalX={380}
-                        finalY={120}
+                        finalX={isMobile ? 90 : 380}
+                        finalY={isMobile ? 50 : 120}
+                        isMobile={isMobile}
                         className={`${styles.widgetBase} ${styles.widgetFullBody}`}
                     >
                         <span style={{ fontSize: '1.75rem' }}>🏋️‍♂️</span>
@@ -193,27 +211,52 @@ function ScrollWidget({
     className,
     progress,
     finalX,
-    finalY
+    finalY,
+    isMobile = false
 }: {
     children: React.ReactNode,
     className?: string,
     progress: MotionValue<number>,
     finalX: number,
-    finalY: number
+    finalY: number,
+    isMobile?: boolean
 }) {
-    // Widgets start from phone center (0, 0) and animate out as you scroll
-    // They appear between 0.2 and 0.6 scroll progress
-    const x = useTransform(progress, [0.2, 0.6], [0, finalX]);
-    const y = useTransform(progress, [0.2, 0.6], [0, finalY]);
-    const scale = useTransform(progress, [0.2, 0.6], [0.3, 1]);
-    const opacity = useTransform(progress, [0.2, 0.6], [0, 1]);
-
-    return (
-        <motion.div
-            style={{ x, y, scale, opacity }}
-            className={className}
-        >
-            {children}
-        </motion.div>
-    )
+    // Original desktop animation - widgets appear between 0.2 and 0.6 scroll progress
+    // Mobile: Widgets animate faster from 0 to 0.15 for immediate appearance
+    if (isMobile) {
+        const x = useTransform(progress, [0, 0.15], [0, finalX]);
+        const y = useTransform(progress, [0, 0.15], [0, finalY]);
+        const scale = useTransform(progress, [0, 0.15], [0.6, 0.7]);
+        const opacity = useTransform(progress, [0, 0.05, 0.15], [1, 1, 1]);
+        
+        return (
+            <motion.div
+                style={{ x, y, scale, opacity }}
+                className={className}
+            >
+                {children}
+            </motion.div>
+        );
+    } else {
+        // Desktop - Widgets come out of phone center
+        // Appear immediately when section is visible (0 to 0.4 progress)
+        const x = useTransform(progress, [0, 0.4], [0, finalX]);
+        const y = useTransform(progress, [0, 0.4], [0, finalY]);
+        const scale = useTransform(progress, [0, 0.4], [0.3, 1]);
+        const opacity = useTransform(progress, [0, 0.1, 0.4], [0.8, 1, 1]);
+        
+        return (
+            <motion.div
+                style={{ 
+                    x, 
+                    y, 
+                    scale, 
+                    opacity
+                }}
+                className={className}
+            >
+                {children}
+            </motion.div>
+        );
+    }
 }

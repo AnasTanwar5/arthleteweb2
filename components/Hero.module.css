@@ -14,13 +14,21 @@
     align-items: center;
     justify-content: center;
     padding-top: 0;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .phoneScrollSection {
-    height: 300vh;
+    height: 120vh;
     position: relative;
     background-color: var(--brand-white);
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+@media (max-width: 480px) {
+    .phoneScrollSection {
+        height: 100vh;
+    }
 }
 
 .phoneShowcaseWrapper {
@@ -143,6 +151,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 8rem;
+    overflow: visible;
 }
 
 @media (min-width: 768px) {
@@ -320,6 +329,10 @@
     gap: 0.75rem;
     box-shadow: var(--shadow-float);
     border: 1px solid var(--brand-off-white);
+    visibility: visible;
+    z-index: 10;
+    pointer-events: auto;
+    will-change: transform, opacity;
 }
 
 .widgetDavis {
@@ -624,5 +637,202 @@
     .headingWrapper {
         gap: 2rem;
         padding: 0 1.5rem 1.5rem;
+    }
+
+    .phoneContainer {
+        margin-top: 2rem;
+    }
+
+    .phoneFrame {
+        width: 250px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .headingWrapper {
+        gap: 1.5rem;
+        padding: 0 1rem 1rem;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .phoneContainer {
+        margin-top: 1.5rem;
+    }
+
+    .phoneFrame {
+        width: 180px;
+        height: 360px;
+        border: 8px solid var(--brand-black);
+        border-radius: 2rem;
+    }
+
+    .phoneScreen {
+        padding-top: 2rem;
+        padding-left: 0.875rem;
+        padding-right: 0.875rem;
+    }
+
+    .phoneTitle {
+        font-size: 0.9375rem;
+    }
+
+    .phoneAvatar {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .bannerHeading {
+        font-size: 1.25rem;
+    }
+
+    .badge {
+        font-size: 0.5rem;
+        padding: 0.2rem 0.5rem;
+        top: 0.75rem;
+        left: 0.75rem;
+    }
+
+    .bannerText {
+        bottom: 1rem;
+        left: 1rem;
+    }
+
+    .phoneButton {
+        padding: 0.75rem;
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .notch {
+        width: 6rem;
+        height: 1.25rem;
+    }
+
+    .downloadButtons {
+        max-width: 180px;
+    }
+
+    .downloadButtonLink:first-child .downloadButtonSvg,
+    .downloadButtonLink:last-child .downloadButtonSvg {
+        width: 160px;
+    }
+
+    /* Mobile widget adjustments - smaller size and adjusted positions */
+    .widgetBase {
+        display: flex !important;
+        visibility: visible !important;
+        /* Ensure widgets don't overlap */
+        margin: 0.5rem 0;
+    }
+
+    /* Adjust widget positions for mobile */
+    .widgetDavis {
+        max-width: 240px;
+        padding: 1rem;
+        gap: 0.875rem;
+    }
+
+    .davisAvatar {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .widgetText h4 {
+        font-size: 0.875rem;
+    }
+
+    .widgetText p {
+        font-size: 0.75rem;
+    }
+
+    .widgetCalories {
+        padding: 0.875rem 1.25rem;
+    }
+
+    .widgetLegs {
+        padding: 1rem;
+        width: 7rem;
+        gap: 0.5rem;
+    }
+
+    .iconCircle {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+    }
+
+    .widgetsChart {
+        padding: 1rem;
+    }
+
+    .chartBars {
+        height: 3.5rem;
+        gap: 0.375rem;
+    }
+
+    .bar {
+        width: 0.75rem;
+    }
+
+    .widgetStreak {
+        padding: 0.875rem 1.25rem;
+    }
+
+    .widgetMuscle {
+        padding: 1rem;
+        width: 7rem;
+        gap: 0.5rem;
+    }
+
+    .widgetImages {
+        padding: 0.5rem;
+    }
+
+    .stackedAvatar {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-width: 2px;
+    }
+
+    .widgetFullBody {
+        padding: 0.875rem 1.25rem;
+    }
+
+    /* Scale down inline font sizes for mobile widgets */
+    .widgetCalories span,
+    .widgetStreak span {
+        font-size: 1.5rem !important;
+    }
+
+    .widgetFullBody span {
+        font-size: 1.25rem !important;
+    }
+
+    /* Ensure widgets don't exceed viewport width */
+    .widgetBase {
+        max-width: calc(100vw - 2rem);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Tablet adjustments - widgets will be scaled via component */
+    .phoneContainer {
+        overflow: visible;
+    }
+}
+
+/* Ensure widgets don't overflow on mobile */
+@media (max-width: 480px) {
+    .phoneContainer {
+        overflow: visible;
+        padding: 0 1rem;
+    }
+
+    .phoneScrollSection {
+        overflow-x: hidden;
     }
 }

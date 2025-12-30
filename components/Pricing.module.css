@@ -174,10 +174,31 @@
 
 
 @media (max-width: 768px) {
+    .section {
+        padding: 4rem 1.5rem;
+    }
+
+    .header {
+        margin-bottom: 3rem;
+    }
+
+    .mainTitle {
+        font-size: 2rem;
+    }
+
+    .subTitle {
+        font-size: 1rem;
+    }
+
     .grid {
         grid-template-columns: 1fr;
         max-width: 500px;
         margin: 0 auto;
+        gap: 1.5rem;
+    }
+
+    .card {
+        padding: 2rem 1.5rem;
     }
 
     .cardPopular {
@@ -186,6 +207,76 @@
 
     .cardPopular:hover {
         transform: translateY(-8px);
+    }
+
+    .price {
+        font-size: 2.5rem;
+    }
+
+    .planName {
+        font-size: 1.25rem;
+    }
+
+    .startBtnContainer {
+        margin-top: 3rem;
+    }
+
+    .centralCtaButton {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 3rem 1rem;
+    }
+
+    .header {
+        margin-bottom: 2rem;
+    }
+
+    .mainTitle {
+        font-size: 1.75rem;
+    }
+
+    .subTitle {
+        font-size: 0.9375rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    .price {
+        font-size: 2rem;
+    }
+
+    .planName {
+        font-size: 1.125rem;
+    }
+
+    .planDescription {
+        font-size: 0.875rem;
+    }
+
+    .featureItem {
+        font-size: 0.9375rem;
+    }
+
+    .popularTag,
+    .flexipayTag {
+        font-size: 0.75rem;
+        padding: 4px 12px;
+    }
+
+    .startBtnContainer {
+        margin-top: 2rem;
+    }
+
+    .centralCtaButton {
+        padding: 0.875rem 1.75rem;
+        font-size: 0.9375rem;
     }
 }
 
